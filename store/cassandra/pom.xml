@@ -20,10 +20,6 @@
             <artifactId>mizool-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.mizool.tableaccess</groupId>
-            <artifactId>tableaccess-business</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.github.mizool.typemapping</groupId>
             <artifactId>typemapping-business</artifactId>
         </dependency>

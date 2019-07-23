@@ -121,11 +121,6 @@
                 <version>${mizool.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.mizool.tableaccess</groupId>
-                <artifactId>tableaccess-business</artifactId>
-                <version>${mizool.tableaccess.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.github.mizool.technology</groupId>
                 <artifactId>technology-cassandra</artifactId>
                 <version>${mizool.version}</version>

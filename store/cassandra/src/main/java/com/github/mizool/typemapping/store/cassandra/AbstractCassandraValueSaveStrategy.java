@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import com.datastax.driver.core.querybuilder.Insert;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
-import com.github.mizool.tableaccess.business.Cell;
 import com.github.mizool.typemapping.business.DataType;
 
 abstract class AbstractCassandraValueSaveStrategy implements CassandraValueSaveStrategy
@@ -23,12 +22,11 @@ abstract class AbstractCassandraValueSaveStrategy implements CassandraValueSaveS
     }
 
     @Override
-    public void saveValue(Cell cell, Insert insert)
+    public void saveValue(String columnName, Object value, Insert insert)
     {
-        Object value = cell.getValue();
         if (value != null)
         {
-            insert.value(QueryBuilder.quote(cell.getColumn().getName()), convertValue(value));
+            insert.value(QueryBuilder.quote(columnName), convertValue(value));
         }
     }
 
