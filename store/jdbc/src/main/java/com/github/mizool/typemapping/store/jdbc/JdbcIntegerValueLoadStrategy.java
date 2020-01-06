@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 import com.github.mizool.typemapping.business.DataType;
+import com.google.common.collect.ImmutableSet;
 
 class JdbcIntegerValueLoadStrategy extends AbstractJdbcValueLoadStrategy
 {
     public JdbcIntegerValueLoadStrategy()
     {
-        super(Types.INTEGER, DataType.INTEGER);
+        super(ImmutableSet.of(Types.INTEGER, Types.TINYINT), DataType.INTEGER);
     }
 
     @Override
