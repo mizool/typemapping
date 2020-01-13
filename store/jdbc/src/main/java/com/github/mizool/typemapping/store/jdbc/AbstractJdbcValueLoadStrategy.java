@@ -2,14 +2,11 @@ package com.github.mizool.typemapping.store.jdbc;
 
 import java.util.Set;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import com.github.mizool.typemapping.business.DataType;
 import com.google.common.collect.ImmutableSet;
 
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 abstract class AbstractJdbcValueLoadStrategy implements JdbcValueLoadStrategy
 {
     @Getter
@@ -21,5 +18,11 @@ abstract class AbstractJdbcValueLoadStrategy implements JdbcValueLoadStrategy
     protected AbstractJdbcValueLoadStrategy(Integer sourceColumnType, DataType targetDataType)
     {
         this(ImmutableSet.of(sourceColumnType), targetDataType);
+    }
+
+    protected AbstractJdbcValueLoadStrategy(Set<Integer> sourceColumnTypes, DataType targetDataType)
+    {
+        this.sourceColumnTypes = ImmutableSet.copyOf(sourceColumnTypes);
+        this.targetDataType = targetDataType;
     }
 }
