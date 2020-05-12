@@ -24,10 +24,12 @@ abstract class AbstractCassandraValueSaveStrategy implements CassandraValueSaveS
     @Override
     public void saveValue(String columnName, Object value, Insert insert)
     {
+        Object convertedValue = value;
         if (value != null)
         {
-            insert.value(QueryBuilder.quote(columnName), convertValue(value));
+            convertedValue = convertValue(value);
         }
+        insert.value(QueryBuilder.quote(columnName), convertedValue);
     }
 
     protected Object convertValue(Object value)
